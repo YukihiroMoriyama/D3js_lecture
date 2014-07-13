@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Step01</title>
+    <script type="text/javascript" src="../lib/d3.min.js"></script>
+</head>
+
+<body>
+    <!-- body の中にはスクリプトタグのみ -->
+
+    <script type="text/javascript">
+    /* ここにコーディングする */
+
+    /**
+     * Description
+     * 与えられた (    ) によって (    ) を (    ) するソースコード
+     */
+
+    /* 使用するデータセット */
+    var dataset = [5, 10, 15];
+
+    /* D3.js のコード */
+    d3.select('body')
+        .selectAll('p')
+        .data(dataset)
+        .enter()
+        .append('p')
+        .text('New paragraph!');
+
+    console.log(d3.selectAll('p'));
+    </script>
+</body>
+
+</html>
