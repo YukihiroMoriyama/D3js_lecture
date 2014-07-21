@@ -10,3 +10,11 @@ Lecture Materials
 Using Library
 ===
 * D3.js : http://d3js.org/
+
+Author
+===
+[YukihiroMoriyama](https://github.com/YukihiroMoriyama)
+
+License
+===
+[BSD License](/LICENSE)
