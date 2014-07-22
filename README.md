@@ -6,6 +6,7 @@ D3.js講習会用
 Lecture Materials
 ===
 * 1回目：http://www.slideshare.net/YukihiroMoriyama/d3js1
+* 2回目：http://www.slideshare.net/YukihiroMoriyama/d3js2
 
 Using Library
 ===
