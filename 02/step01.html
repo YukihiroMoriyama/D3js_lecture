@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Step02</title>
+    <title>Step01</title>
     <script type="text/javascript" src="../lib/d3.min.js"></script>
 </head>
 
@@ -21,8 +21,26 @@
         var dataset = getRandomDataset(1, 20, 20);
 
         /* フロー1: SVGの作成 */
+        var svg = d3.select('body').append('svg')
+            .attr('width', svgWidth)
+            .attr('height', svgHeight);
 
         /* フロー2: 棒の作成 */
+        svg.selectAll('rect')
+        .data(dataset)
+        .enter()
+        .append('rect')
+        .attr('width', svgWidth / dataset.length - paddingX)
+        .attr('height', function(d) {
+            return d * 10;
+        })
+        .attr('x', function(d, i) {
+            return svgWidth / dataset.length * i;
+        })
+        .attr('y', function(d, i) {
+            return svgHeight - d * 10;
+        })
+        .attr('fill', 'teal');
 
         /* フロー3: ラベルの作成 */
         svg.selectAll('text') // テキストの描画
@@ -47,8 +65,8 @@
 
     /**
      * 指定した値の範囲で指定した数分のデータを生成する
-     * @param  {number} from 最低限の値
-     * @param  {number} to   最高の値
+     * @param  {number} from 最小値
+     * @param  {number} to   最高値
      * @param  {number} num  生成するデータ数
      * @return {Array}       生成した配列を返す
      */
