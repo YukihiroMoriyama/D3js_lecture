@@ -7,6 +7,7 @@ Lecture Materials
 ===
 * 1回目：http://www.slideshare.net/YukihiroMoriyama/d3js1
 * 2回目：http://www.slideshare.net/YukihiroMoriyama/d3js2
+* 3回目：http://www.slideshare.net/YukihiroMoriyama/d3js-37449949
 
 Using Library
 ===
