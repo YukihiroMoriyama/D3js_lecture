@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Step01</title>
+    <script type="text/javascript" src="../lib/d3.min.js"></script>
+    <style type="text/css">
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: black;
+    }
+    .axis text {
+        font-size: 11px;
+    }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /* ここにコーディングする */
+
+    var svgWidth = 600; // 棒グラフを表示する幅
+    var svgHeight = 300; // 棒グラフを表示する高さ
+    var paddingTop = 10;
+    var paddingBottom = 10;
+    var paddingRight = 25;
+
+    /* SVGの作成 */
+    var svg = d3.select('body').append('svg')
+        .attr('width', svgWidth)
+        .attr('height', svgHeight);
+
+    function BarChart() {
+        var paddingX = 3; // 棒間の余白
+
+        /* データセットの作成 */
+        var dataset = getDataset(20);
+        console.log(dataset);
+
+        /* ここで軸を作成 */
+        var yScale; // y軸のScale
+        var yAxis; // y軸のScale
+
+        /* フロー１：Scaleの設定 */
+
+        /* フロー２：Axisの設定して呼び出し */
+
+        /* 棒の作成 */
+        var rects = svg.selectAll('rect')
+            .data(dataset);
+
+        /* enter */
+        rects.enter()
+            .append('rect')
+            .attr('width', (svgWidth - paddingRight) / dataset.length - paddingX)
+            .attr('height', function(d) {
+                return d * 10;
+            })
+            .attr('x', function(d, i) {
+                return (svgWidth - paddingRight) / dataset.length * i;
+            })
+            .attr('y', function(d, i) {
+                return svgHeight - d * 10;
+            })
+            .attr('fill', 'teal');
+    }
+
+    /**
+     * 指定した数分のデータを生成する
+     * @param  {number} num  生成するデータ数
+     * @return {Array}       生成した配列を返す
+     */
+    function getDataset(num) {
+        var array = [];
+        for (var i = 1; i <= num; i++) {
+            array.push(Math.floor(Math.random() * 29 + 1));
+        }
+        return array;
+    }
+
+    BarChart();
+    </script>
+</body>
+
+</html>
